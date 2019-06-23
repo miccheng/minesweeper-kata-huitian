@@ -6,13 +6,13 @@ class Minesweeper{
     this.rows = gridSize.rows
   }
 
-  static createGame(gridSize, mines = []) {
+  static async createGame(gridSize, mines = []) {
     const newGame = new Minesweeper(gridSize)
-    newGame.prepareBoard(mines)
+    await newGame.prepareBoard(mines)
     return newGame
   }
 
-  prepareBoard(mines = []) {
+  async prepareBoard(mines = []) {
     this.grid = this.generateEmptyGrid(this.columns, this.rows)
 
     mines.forEach(coord => {
